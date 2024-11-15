@@ -1,5 +1,6 @@
-using Queue = LinkedQueue<int>;
-using ListOfQueues = LinkedList<Queue>;
+// Попълнете предложените от вас типове в редовете долу
+using Queue = ОПАШКА_ОТ_ЧИСЛА;
+using ListOfQueues = СПИСЪК_ОТ_ОПАШКИ;
 
 TEST_CASE("Примерът от условието работи правилно") {
     ListOfQueues lq;

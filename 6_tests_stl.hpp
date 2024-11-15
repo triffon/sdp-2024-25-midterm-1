@@ -1,5 +1,6 @@
-using Stack = std::stack<int>;
-using ListOfStacks = std::list<Stack>;
+// Попълнете предложените от вас типове в редовете долу
+using Stack = СТЕК_ОТ_ЧИСЛА;
+using ListOfStacks = СПИСЪК_ОТ_СТЕКОВЕ;
 
 TEST_CASE("Примерът от условието работи") {
     ListOfStacks ls;

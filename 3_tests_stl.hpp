@@ -1,5 +1,6 @@
-using Queue = std::queue<int>;
-using ListOfQueues = std::list<Queue>;
+// Попълнете предложените от вас типове в редовете долу
+using Queue = ОПАШКА_ОТ_ЧИСЛА;
+using ListOfQueues = СПИСЪК_ОТ_ОПАШКИ;
 
 TEST_CASE("Примерът от условието работи правилно") {
     ListOfQueues lq;

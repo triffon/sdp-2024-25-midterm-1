@@ -1,5 +1,6 @@
-using VideoQueue = std::queue<Video>;
-using StringQueue = std::queue<std::string>;
+// Попълнете предложените от вас типове в редовете долу
+using VideoQueue = ОПАШКА_ОТ_ВИДЕА;
+using StringQueue = ОПАШКА_ОТ_НИЗОВЕ;
 
 TEST_CASE("Примерът в условието работи правилно") {
     VideoQueue play;
