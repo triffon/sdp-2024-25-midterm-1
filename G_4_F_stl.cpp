@@ -26,25 +26,27 @@ later) ⇒ {"APT", "Gangnam style", "Despacito"}
 /***********************************************************************
  РЕШЕНИЕ:
 ************************************************************************/
-#include "linked_queue.hpp"
+#include <queue>
 #include <string>
 
 using Video = std::pair<std::string, int>;
 
-LinkedQueue<std::string> watch(int n, LinkedQueue<Video> play, LinkedQueue<std::string>& later) {
-    LinkedQueue<std::string> result;
-    Video current = play.dequeue();
+std::queue<std::string> watch(int n, std::queue<Video> play, std::queue<std::string>& later) {
+    std::queue<std::string> result;
+    Video current = play.front();
+    play.pop();
     Video last = current;
-    result.enqueue(current.first);
+    result.push(current.first);
     int skipped = 0;
     
     while (!play.empty() && skipped < n) {
-        current = play.dequeue();
+        current = play.front();
+        play.pop();
         if (current.second > last.second) {
-            result.enqueue(current.first);
+            result.push(current.first);
             skipped = 0;
         } else {
-            later.enqueue(current.first);
+            later.push(current.first);
             ++skipped;
         }
         last = current;
@@ -63,7 +65,7 @@ LinkedQueue<std::string> watch(int n, LinkedQueue<Video> play, LinkedQueue<std::
 /***********************************************************************
   РАЗКОМЕНТИРАЙТЕ СЛЕДВАЩИЯ РЕД, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
 ************************************************************************/
-#include "4_tests.hpp"
+#include "4_tests_stl.hpp"
 
 int main () {
     // пускане на тестовете
