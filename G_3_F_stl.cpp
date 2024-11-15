@@ -33,7 +33,7 @@
 template <typename T>
 void transform(std::list<std::queue<T>>& lq) {
     std::queue<T> result;
-    std::queue<int>* minq = nullptr;
+    std::queue<T>* minq = nullptr;
     typename std::list<std::queue<T>>::iterator it;
     
     do {
