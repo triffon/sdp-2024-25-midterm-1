@@ -35,42 +35,12 @@
 /***********************************************************************
  РЕШЕНИЕ:
 ************************************************************************/
-#include "linked_stack.hpp"
-#include "linked_list.hpp"
 
-template <typename T>
-void transform(LinkedList<LinkedStack<T>>& ls) {
-    LinkedStack<T> result;
-    LinkedStack<T>* mins = nullptr;
-    typename LinkedList<LinkedStack<T>>::Iterator it;
-    
-    do {
-        it = ls.begin();
-        mins = nullptr;
-        
-        for (int pos = 1; it != ls.end(); ++it, ++pos) {
-            if (pos % 2 != 0 && !(*it).empty()) {
-                if (mins == nullptr || (*it).peek() < mins->peek())
-                    mins = &*it;
-            }
-        }
-        
-        if (mins != nullptr)
-            result.push((*mins).pop());
-    } while (mins != nullptr);
+// Разкоментирайте долния ред, ако ще правите бонуса
+// template <typename T>
+// Разкоментирайте долния ред като попълните предложение от вас тип за списък от стекове
+// void transform(СПИСЪК_ОТ_СТЕКОВЕ ls);
 
-    LinkedStack<T> tmp;
-    ls.deleteFirst(tmp);
-    it = ls.begin();
-    for (int pos = 3; it != ls.end(); ++pos)
-        if (pos % 2 != 0)
-            ls.deleteAfter(tmp, it);
-        else
-            ++it;
-
-    it = ls.begin();
-    ls.insertFirst(result);
-}
 /***********************************************************************
  КРАЙ НА РЕШЕНИЕТО
 ************************************************************************/
@@ -79,9 +49,12 @@ void transform(LinkedList<LinkedStack<T>>& ls) {
 #include "doctest.h"
 
 /***********************************************************************
-  РАЗКОМЕНТИРАЙТЕ СЛЕДВАЩИЯ РЕД, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
+  РАЗКОМЕНТИРАЙТЕ ЕДИН ОТ СЛЕДВАЩИТЕ РЕДОВЕ, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
 ************************************************************************/
-#include "6_tests.hpp"
+// Разкоментирайте този ред, ако ползвате шаблоните от лекции
+// #include "6_tests.hpp"
+// Разкоментирайте този ред, ако ползвате STL
+// #include "6_tests_stl.hpp"
 
 int main () {
     // пускане на тестовете

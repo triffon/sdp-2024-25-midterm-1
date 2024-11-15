@@ -26,32 +26,9 @@ later) ⇒ {"APT", "Gangnam style", "Despacito"}
 /***********************************************************************
  РЕШЕНИЕ:
 ************************************************************************/
-#include "linked_queue.hpp"
-#include <string>
 
-using Video = std::pair<std::string, int>;
-
-LinkedQueue<std::string> watch(int n, LinkedQueue<Video> play, LinkedQueue<std::string>& later) {
-    LinkedQueue<std::string> result;
-    Video current = play.dequeue();
-    Video last = current;
-    result.enqueue(current.first);
-    int skipped = 0;
-    
-    while (!play.empty() && skipped < n) {
-        current = play.dequeue();
-        if (current.second > last.second) {
-            result.enqueue(current.first);
-            skipped = 0;
-        } else {
-            later.enqueue(current.first);
-            ++skipped;
-        }
-        last = current;
-    }
-    
-    return result;
-}
+// Разкоментирайте долния ред като попълните предложените от вас типове за опашки
+// ОПАШКА_ОТ_НИЗОВЕ watch(int n, ОПАШКА_ОТ_ВИДЕА play, ОПАШКА_ОТ_НИЗОВЕ later);
 
 /***********************************************************************
  КРАЙ НА РЕШЕНИЕТО
@@ -61,9 +38,13 @@ LinkedQueue<std::string> watch(int n, LinkedQueue<Video> play, LinkedQueue<std::
 #include "doctest.h"
 
 /***********************************************************************
-  РАЗКОМЕНТИРАЙТЕ СЛЕДВАЩИЯ РЕД, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
+  РАЗКОМЕНТИРАЙТЕ ЕДИН ОТ СЛЕДВАЩИТЕ РЕДОВЕ, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
 ************************************************************************/
-#include "4_tests.hpp"
+// Разкоментирайте този ред, ако ползвате шаблоните от лекции
+// #include "4_tests.hpp"
+// Разкоментирайте този ред, ако ползвате STL
+// #include "4_tests_stl.hpp"
+
 
 int main () {
     // пускане на тестовете

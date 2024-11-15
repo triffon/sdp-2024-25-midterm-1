@@ -25,18 +25,7 @@ struct node {
  РЕШЕНИЕ:
 ************************************************************************/
 
-node* createCycle(int x, node* start) {
-    node* p = start;
-    node* prev = nullptr;
-    while (p != nullptr && p->data <= x) {
-        prev = p;
-        p = p->next;
-    }
-    if (p == nullptr)
-        return start;
-    prev->next = new node{x, start};
-    return p;
-}
+node* createCycle(int x, node* start);
 
 /***********************************************************************
  КРАЙ НА РЕШЕНИЕТО
@@ -48,7 +37,7 @@ node* createCycle(int x, node* start) {
 /***********************************************************************
   РАЗКОМЕНТИРАЙТЕ СЛЕДВАЩИЯ РЕД, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
 ************************************************************************/
-#include "2_tests.hpp"
+//#include "2_tests.hpp"
 
 int main () {
     // пускане на тестовете

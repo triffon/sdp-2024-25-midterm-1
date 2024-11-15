@@ -33,41 +33,11 @@
 /***********************************************************************
  РЕШЕНИЕ:
 ************************************************************************/
-#include "linked_queue.hpp"
-#include "linked_list.hpp"
 
-template <typename T>
-void transform(LinkedList<LinkedQueue<T>>& lq) {
-    LinkedQueue<T> result;
-    LinkedQueue<T>* minq = nullptr;
-    typename LinkedList<LinkedQueue<T>>::Iterator it;
-    
-    do {
-        it = lq.begin();
-        minq = nullptr;
-        
-        for (int pos = 1; it != lq.end(); ++it, ++pos) {
-            if (pos % 2 == 0 && !(*it).empty()) {
-                if (minq == nullptr || (*it).head() < minq->head())
-                    minq = &*it;
-            }
-        }
-        
-        if (minq != nullptr)
-            result.enqueue((*minq).dequeue());
-    } while (minq != nullptr);
-    
-    it = lq.begin();
-    for (int pos = 2; it != lq.end(); ++pos)
-        if (pos % 2 == 0) {
-            LinkedQueue<T> tmp;
-            lq.deleteAfter(tmp, it);
-        }
-        else
-            ++it;
-    
-    lq.insertLast(result);
-}
+// Разкоментирайте долния ред, ако ще правите бонуса
+// template <typename T>
+// Разкоментирайте долния ред като попълните предложение от вас тип за списък от опашки
+// void transform(СПИСЪК_ОТ_ОПАШКИ lq);
 
 /***********************************************************************
  КРАЙ НА РЕШЕНИЕТО
@@ -77,9 +47,12 @@ void transform(LinkedList<LinkedQueue<T>>& lq) {
 #include "doctest.h"
 
 /***********************************************************************
-  РАЗКОМЕНТИРАЙТЕ СЛЕДВАЩИЯ РЕД, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
+  РАЗКОМЕНТИРАЙТЕ ЕДИН ОТ СЛЕДВАЩИТЕ РЕДОВЕ, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
 ************************************************************************/
-#include "3_tests.hpp"
+// Разкоментирайте този ред, ако ползвате шаблоните от лекции
+// #include "3_tests.hpp"
+// Разкоментирайте този ред, ако ползвате STL
+// #include "3_tests_stl.hpp"
 
 int main () {
     // пускане на тестовете

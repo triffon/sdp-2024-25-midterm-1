@@ -29,36 +29,7 @@
  РЕШЕНИЕ:
 ************************************************************************/
 
-#include <vector>
-#include <stack>
-
-int findMax(int n, std::vector<int> const& play) {
-    std::stack<int> st;
-    int max = 0;
-    for (int x : play) {
-        if (x > max) {
-            max = x;
-        }
-        if (--n < 0)
-            return 0;
-        if (st.empty() || x > st.top())
-            // скок напред
-            st.push(x++);
-        else {
-            // скок назад
-            st.pop();
-            if (st.empty() || st.top() != x)
-                return 0;
-            ++n;
-        }
-    }
-    if (st.empty())
-        return 0;
-    st.pop();
-    if (!st.empty())
-        return 0;
-    return max;
-}
+int findMax(int n, std::vector<int> const& play);
 
 /***********************************************************************
  КРАЙ НА РЕШЕНИЕТО
@@ -70,7 +41,7 @@ int findMax(int n, std::vector<int> const& play) {
 /***********************************************************************
   РАЗКОМЕНТИРАЙТЕ СЛЕДВАЩИЯ РЕД, ЗА ДА ВКЛЮЧИТЕ ТЕСТОВЕТЕ
 ************************************************************************/
-#include "1_tests.hpp"
+//#include "1_tests.hpp"
 
 int main () {
     // пускане на тестовете
